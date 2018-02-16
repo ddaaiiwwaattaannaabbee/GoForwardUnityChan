@@ -23,4 +23,16 @@ public class CubeController : MonoBehaviour {
                         Destroy (gameObject);
                 }
         }
+
+        //衝突時に呼ばれる関数
+        void OnCollisionEnter2D(Collision2D other) {
+                //衝突したオブジェクトによって音を鳴らす
+				if(other.gameObject.tag == "CubeTag" || other.gameObject.tag == "GroundTag"){
+					Debug.Log("ぶつかった");
+
+					AudioSource audio = GetComponent<AudioSource>();
+					audio.Play(0);
+				}
+                
+        }
 }
